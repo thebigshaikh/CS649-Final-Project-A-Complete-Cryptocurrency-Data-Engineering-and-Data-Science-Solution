@@ -25,8 +25,8 @@ class MonitorFolder(FileSystemEventHandler):
 
 
 def watch_and_publish():
-    src_path_hourly = "/Users/basil/SDSU/Spring 22/CS-649/FinalProject/S3_Hourly/"
-    src_path_minutely = "/Users/basil/SDSU/Spring 22/CS-649/FinalProject/S3_Minutely/"
+    src_path_hourly = "../S3_Hourly/"
+    src_path_minutely = "../S3_Minutely/"
 
     event_handler_hourly = MonitorFolder()
     observer_hourly = Observer()

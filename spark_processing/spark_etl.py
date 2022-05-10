@@ -1,21 +1,11 @@
 from pyspark.sql import SparkSession, Row
-import datetime
-from datetime import datetime as dt
-from pyspark.sql.functions import date_sub, next_day, desc, monotonically_increasing_id, col, first, date_format
-from datetime import date
-import pyspark.pandas as ps
-import calendar
+from pyspark.sql.functions import col, first, date_format
 import pyspark.sql.functions as F
 from pyspark.sql.types import *
 
-# from pyspark.sql.functions import first as fs
-
-
-# DATA_PATH = "/Users/basil/SDSU/Spring 22/CS-649/FinalProject/S3_Hourly/"
-
 spark = SparkSession.builder.master("local[1]") \
     .appName("CS649-Final-Project") \
-    .config("spark.jars", "/Users/basil/SDSU/Spring 22/CS-649/FinalProject/jars/postgresql-42.3.5.jar") \
+    .config("spark.jars", "../jars/postgresql-42.3.5.jar") \
     .getOrCreate()
 
 
@@ -85,6 +75,7 @@ def clean_data(spdf):
 
 
 def split_timestamp(cleaned_df):
+    # Splits timestamp to date and time
     df = cleaned_df
     split_col = F.split(df['date'], ' ')
     df = df.withColumn('just_time', F.concat(split_col.getItem(1)))
@@ -98,7 +89,6 @@ def aggregate_date(data):
     df = df.orderBy(col('unix'))
     df_agg = df.groupBy(col('just_date'), col('symbol')) \
         .agg(F.first('open').alias("Open"),
-             # F.percentile_approx("open", 0.5).alias("Median Open"),
 
              F.avg('high').alias("Avg High"),
              F.percentile_approx("high", 0.5).alias("Median High"),
@@ -107,13 +97,10 @@ def aggregate_date(data):
              F.percentile_approx("low", 0.5).alias("Median Low"),
 
              F.last('close').alias("Close"),
-             # F.percentile_approx("close", 0.5).alias("Median Close"),
 
              F.sum('volume-coin').alias("Total Volume-Coin"),
-             # F.percentile_approx("volume-coin", 0.5).alias("Median Volume-Coin"),
 
              F.sum('volume-usd').alias("Total Volume-USD")
-             # ,F.percentile_approx("volume-usd", 0.5).alias("Median Volume-USD")
              )
 
     return df_agg
@@ -122,6 +109,7 @@ def aggregate_date(data):
 def write_to_warehouse(data, historical, DB_NAME, file_type):
     df = data
     if historical:
+        # Writes Historical Data
         table_name = file_type + "_historical_coin_data"
 
         df.select("unix", "date", "symbol", "open", "high", "low", "close", "volume-coin", "volume-usd", "just_date",
@@ -134,6 +122,7 @@ def write_to_warehouse(data, historical, DB_NAME, file_type):
             .option("user", "postgres").option("password", "postgres").save()
 
     else:
+        # Writes Aggregated Data
         TABLE_NAME = "daily_coin_data"
         df.select("just_date", "symbol", "Open", "Avg High", "Median High",
                   "Avg Low", "Median Low", "Close",

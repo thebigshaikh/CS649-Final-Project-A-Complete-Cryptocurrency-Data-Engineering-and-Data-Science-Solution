@@ -1,3 +1,7 @@
+-- This SQL Function creates a datamart from the historical data table for the
+-- crypto-currency that is passed as a parameter to the script
+-- example call : - select create_coin_datamart('BTC/USD')
+
 CREATE OR REPLACE FUNCTION public.create_coin_datamart(coin text)
  RETURNS void
  LANGUAGE plpgsql
