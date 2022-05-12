@@ -1,4 +1,5 @@
-<center>
+<p align="center">
+
 <h1>CS-649: Final Project</h1>
 
 <h3>A Comprehensive Data Engineering and Data Science Solution for Multi-Cryptocurrency Data</h3>
@@ -6,7 +7,7 @@
 By <br>
 Basil Sajid Shaikh <br>
 Melrick Mascarenhas
-</center>
+</p>
 
 ### Project Overview
 <p style='text-align: justify;'>
