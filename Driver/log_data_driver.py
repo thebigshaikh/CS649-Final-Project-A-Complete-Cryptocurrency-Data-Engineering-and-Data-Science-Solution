@@ -1,7 +1,7 @@
 import logging
 from kafka import KafkaConsumer
 from json import loads
-
+from kafka_variables import kafka_port,kafka_server, kafka_url
 
 # This Scripts reads the messages from the kafka topic and logs them to
 # the log file along with other debug logs
@@ -9,7 +9,7 @@ from json import loads
 def log_topic_messages():
     consumer = KafkaConsumer(
         'new-file-events',
-        bootstrap_servers=['localhost:9092'],
+        bootstrap_servers=[kafka_url],
         auto_offset_reset='earliest',
         enable_auto_commit=True,
         group_id='logger',

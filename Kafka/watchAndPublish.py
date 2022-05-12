@@ -3,9 +3,10 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from kafka import KafkaProducer
 from json import dumps
+from Driver.kafka_variables import kafka_url,kafka_port,kafka_server
 
 filename = ""
-producer = KafkaProducer(bootstrap_servers=['localhost:9092'], value_serializer=lambda x:
+producer = KafkaProducer(bootstrap_servers=[kafka_url], value_serializer=lambda x:
 dumps(x).encode('utf-8'))
 
 

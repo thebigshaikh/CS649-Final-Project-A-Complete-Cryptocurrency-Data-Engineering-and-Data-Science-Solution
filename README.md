@@ -177,14 +177,17 @@ a. Open new terminal and execute
 ```
 bin/kafka-topics.sh --create --topic new-file-events --bootstrap-server localhost:9092`
 ```
+**2. Edit /Driver/kafka_variables.py file**
 
-**2. Run driver programs in Python**
+Change Kafka port and Kafka server if it is different for you else keep it as it is.
+
+**3. Run driver programs in Python**
 
 1. consumer_spark_driver.py
 2. poller_publisher_driver.py
 3. log_data_driver.py
 
-**3. Add files to the bucket**
+**4. Add files to the bucket**
 
 Add 28 hourly files from any of the dates folder in */Processed_Data* to *S3_Hourly* directory or
 Add 5 minutely files from any of the dates folder in */Processed_Data/MinuteData* to *S3_Minutely* directory.
