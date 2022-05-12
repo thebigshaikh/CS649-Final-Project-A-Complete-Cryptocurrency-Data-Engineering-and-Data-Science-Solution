@@ -3,11 +3,11 @@
 
 
 
-<h3>A Comprehensive Data Engineering and Data Science Solution for Multi-Cryptocurrency Data</h3>
+<h3> A Comprehensive Data Engineering and Data Science Solution for Multi-Cryptocurrency Data </h3>
 Github [URL](https://github.com/thebigshaikh/CS649-Final-Project-A-Complete-Cryptocurrency-Data-Engineering-and-Data-Science-Solution.git)
 
 
-
+<br>
 By <br>
 Basil Sajid Shaikh [826991276]<br>
 Melrick Mascarenhas [825858313]
