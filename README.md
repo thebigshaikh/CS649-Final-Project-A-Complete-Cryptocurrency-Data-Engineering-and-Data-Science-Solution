@@ -1,4 +1,3 @@
-<  align="center">
 
 <h1>CS-649: Final Project</h1>
 
@@ -10,6 +9,10 @@ By <br>
 Basil Sajid Shaikh [826991276]<br>
 Melrick Mascarenhas [825858313]
 </p>
+
+###Project Demo Video URL
+We have created a  video demonstration of the project.  [Project Video](rb.gy/o8hgd9)
+
 
 ### Project Overview
 <p style='text-align: justify;'>
