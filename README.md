@@ -22,7 +22,7 @@ We have created a  video demonstration of the project.  [Project Video](rb.gy/o8
 Thanks to the advancement of blockchain technology and the use of cryptocurrencies, today, we have approximately 18,465 different cryptocurrencies. These cryptocurrencies are being traded every minute and hour, thus generating data on a daily basis. With this project, we are proposing an end-to-end architecture and solution to manage this data and show how it can be used. Our solution comprises Data pipelines, Data processing, Data ETL, Data analysis, and Dashboarding along with Machine Learning modeling for forecasting.
 </p>
 
-![Achitecture image](https://github.com/thebigshaikh/CS649-Final-Project-A-Complete-Cryptocurrency-Data-Engineering-and-Data-Science-Solution/blob/master/ImageAssets/cs649-arch.png)
+![Achitecture image](https://github.com/thebigshaikh/CS649-Final-Project-A-Complete-Cryptocurrency-Data-Engineering-and-Data-Science-Solution/blob/master/ImageAssets/new_arch.png)
 
 
 ## Data
